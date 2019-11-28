@@ -41,7 +41,20 @@
       </div>
 
       <script id='DOM manipulation script'>
+      //  //document.getElementById('modified').appendChild(document.createElement('a'));
+      //  let link = "https://www.youtube.com/watch?v=0ik6X4DJKCc";
+      //  let a = (document.createElement('a'));
+      //  a.href = link;
+      //  a.target = "_blank"
+      //  a.textContent = "Mr. Traversy does it again!";
+      //  document.getElementById('modified').appendChild(document.createElement('a'));
        // write me! (... without using cloneNode, that's kind of cheating)
+       let link = document.getElementById('modified');
+       let a = document.createElement('a');
+       link.appendChild(a);
+       a.href="https://www.youtube.com/watch?v=0ik6X4DJKCc";
+       a.target='_blank';
+       a.textContent="Mr. Traversy does it again!";
       </script>
 
     </div>
