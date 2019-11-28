@@ -1,72 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-  <meta charset="utf-8">
+    <title>change the link</title>
+    <meta name="description" content="change the link" />
 
-  <title>change the link</title>
-  <meta name="description" content="change the link">
+    <link href="../../dependencies/mocha/mocha.css" rel="stylesheet" />
+    <script src="../../dependencies/mocha/mocha.js"></script>
+    <script src="../../dependencies/assert.js"></script>
 
-  <link href="../../dependencies/mocha/mocha.css" rel="stylesheet" />
-  <script src="../../dependencies/mocha/mocha.js"></script>
-  <script src="../../dependencies/assert.js"></script>
+    <script src="../../dependencies/testTheDom.js"></script>
 
-  <script src="../../dependencies/testTheDom.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <body>
+    <header>
+      <h2>change the link</h2>
+    </header>
 
-</head>
+    <section class="things-to-study">
+      <div id="side to inspect" class="exercise-output">
+        <div id="un-modified">
+          <a href="https://www.badgerbadgerbadger.com" target="blank"
+            >learn about pigs</a
+          >
+        </div>
 
-<body>
+        <div id="replicate-me">
+          <a href="https://www.badgerbadgerbadger.com" target="_blank"
+            >learn about badgers</a
+          >
+        </div>
 
-  <header>
-    <h2>change the link</h2>
-  </header>
+        <div id="modified">
+          <a href="https://www.badgerbadgerbadger.com" target="blank"
+            >learn about pigs</a
+          >
+        </div>
 
-  <section class='things-to-study'>
-    <div id='side to inspect' class='exercise-output'>
-
-      <div id='un-modified'>
-        <a href='https://www.badgerbadgerbadger.com' target="blank">learn about pigs</a>
+        <script id="DOM manipulation script">
+          document.getElementById("modified").children[0].innerHTML =
+            "learn about badgers"; // write me! (... without using cloneNode, that's kind of cheating)
+          document.getElementById("modified").children[0].target = "_blank";
+        </script>
+        
       </div>
 
+      <div id="mocha" class="mocha-output"></div>
 
-      <div id='replicate-me'>
-        <a href='https://www.badgerbadgerbadger.com' target="_blank">learn about badgers</a>
-      </div>
-
-      <div id='modified'>
-        <a href='https://www.badgerbadgerbadger.com' target="blank">learn about pigs</a>
-      </div>
-
-      <script id='DOM manipulation script'>
-        document.getElementById('modified').children[0].innerHTML= "learn about badgers";// write me! (... without using cloneNode, that's kind of cheating)
-        document.getElementById('modified').children[0].target =  "_blank";
+      <script id="run the tests!">
+        compareElements.attributesToTest = [
+          "nodeName",
+          "innerText",
+          "href",
+          "target",
+          "children",
+          "childElementCount"
+        ];
+        compareElements(
+          document.getElementById("modified"),
+          document.getElementById("replicate-me")
+        );
+        mocha.run();
       </script>
-.
-    </div>
-
-    <div id="mocha" class='mocha-output'></div>
-
-    <script id='run the tests!'>
-      mocha.setup({
-        ui: 'bdd',
-      })
-      compareElements.attributesToTest = [
-        "nodeName", 'innerText', 'href', 'target', 'children', 'childElementCount'
-      ];
-      compareElements(
-        document.getElementById('modified'),
-        document.getElementById('replicate-me')
-      );
-      mocha.run();
-    </script>
-
-  </section>
-
-
-
-</body>
-
+    </section>
+  </body>
 </html>
