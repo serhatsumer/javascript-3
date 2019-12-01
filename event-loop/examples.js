@@ -11,13 +11,13 @@ function setTimeoutZero() {
 
   setTimeout(function sto_1() {
     console.log(4);
-  }, 0);
+  }, 500);
 
   console.log(2);
 
   setTimeout(function sto_2() {
     console.log(5);
-  }, 0);
+  },1000);
 
   console.log(3);
 
@@ -32,13 +32,13 @@ function example1() {
 
   setTimeout(function sto_1() {
     console.log(5);
-  }, 500);
+  }, 1000);
 
   console.log(2);
 
   setTimeout(function sto_2() {
     console.log(4);
-  }, 0);
+  }, 500);
 
   console.log(3);
 
